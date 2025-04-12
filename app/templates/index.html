@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Spam Classifier</title>
+    <script>
+        async function classifyEmail() {
+            const emailContent = document.getElementById('emailContent').value;
+            const response = await fetch('/classify', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ email_content: emailContent })
+            });
+
+            const result = await response.json();
+            const resultDiv = document.getElementById('result');
+            if (response.ok) {
+                resultDiv.textContent = `Classification: ${result.classification}`;
+            } else {
+                resultDiv.textContent = `Error: ${result.error}`;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Email Spam Classifier</h1>
+    <textarea id="emailContent" rows="10" cols="50" placeholder="Paste your email content here..."></textarea>
+    <br>
+    <button onclick="classifyEmail()">Check Spam</button>
+    <p id="result"></p>
+</body>
+</html>
