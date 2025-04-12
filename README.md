@@ -34,3 +34,32 @@ spam-email-classifier/
 6. **`README.md`**: Provides an overview of the project and setup instructions.
 
 This structure ensures modularity and maintainability for your project.
+
+## How to Start the Application
+
+Follow these steps to set up and run the Flask-based email spam classifier:
+
+1. **Clone the Repository**:
+   ```bash
+   git clone <repository-url>
+   cd spam-email-classifier
+   ```
+
+2. **Set Up a Virtual Environment**:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+3. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Run the Application**:
+   ```bash
+    python run.py
+    ```
+
+5. **Access the Web Interface**: 
+   Open your browser and navigate to http://127.0.0.1:5000/.
+
